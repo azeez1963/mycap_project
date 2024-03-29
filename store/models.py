@@ -1,5 +1,4 @@
 from django.db import models
-from users.models import CustomUser
 
 # Create your models here.
 
@@ -35,7 +34,6 @@ class Product(models.Model):
 class Store(models.Model):
       name= models.CharField(max_length=150)
       location= models.CharField(max_length=255)
-      products = models.ManyToManyField('product')
 
       def __str__(self):
             return self.name

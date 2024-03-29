@@ -10,5 +10,12 @@ urlpatterns=[
       path('product/', views.UpgradedProductEndpoint.as_view(), name='product-details'),
       path('product-list/', views.ProductListEndpoint.as_view(), name='product-list'),
       path('product/<int:product_id>', views.ProductDetailEndpoint.as_view(), name='product_id'),
+      path('store/<int:pk>/delete', views.StoreDeleteView.as_view(), name ='store-delete'),
+      path('store-list/', views.StoreListView.as_view(), name='store-list'),
+      path('store-list/', views.StoreUpdateView.as_view(), name='store'),
+      path('store/', views.StoreCreate.as_view(), name='store-details'),
+
+
+
       
 ]

@@ -62,3 +62,13 @@ class UserCreateSerializer(serializers.ModelSerializer):
 
             return User.objects.create_user(username=validated_data['username'], email=validated_data['email'], password=validated_data['password'])
       
+      
+class StoreSerializer(serializers.ModelSerializer):
+      class Meta:
+            model=Store
+            fields=['name', 'location']
+
+class CreateStoreSerializer(serializers.ModelSerializer):
+      class Meta:
+            model=Store
+            fields=['name', 'location']

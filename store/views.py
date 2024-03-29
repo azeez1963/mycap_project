@@ -6,7 +6,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework import status, exceptions, permissions
 from django.contrib.auth.models import User
 from .models import Category, Product, Store
-from .serializers import  CategorySerializer, ProductSerializer, CreateProductSerializer, UserCreateSerializer
+from .serializers import  CategorySerializer, ProductSerializer, CreateProductSerializer, UserCreateSerializer, StoreSerializer, CreateStoreSerializer
 from rest_framework import generics 
 
 # Create your views here.
@@ -118,28 +118,41 @@ class ProductDetailEndpoint(APIView):
             return Response({'message':'product deleted successfully'}, status=status.HTTP_200_OK)
 
 
-# class StoreCreateView(generics.CreateAPIView): 
-#     queryset = Store.objects.all()
-#     serializer_class = StoreSerializer
+class StoreCreateView(generics.CreateAPIView): 
+    queryset = Store.objects.all()
+    serializer_class = StoreSerializer
 
-#     def perform_create(self, serializer):
-#         serializer.save()
+    def perform_create(self, serializer):
+        serializer.save()
 
 
 # Update store
-# class StoreUpdateView(generics.UpdateAPIView):
-#     queryset = Store.objects.all()
-#     serializer_class = StoreSerializer
-#     lookup_field = "pk"
+class StoreUpdateView(generics.UpdateAPIView):
+    queryset = Store.objects.all()
+    serializer_class = StoreSerializer
+    lookup_field = "pk"
 
-# class StoreDeleteView(generics.DestroyAPIView):
-#     queryset = Store.objects.all()
-#     serializer_class = StoreSerializer
-#     lookup_field = "pk"
+class StoreDeleteView(generics.DestroyAPIView):
+    queryset = Store.objects.all()
+    serializer_class = StoreSerializer
+    lookup_field = "pk"
 
-# class StoreListView(generics.ListAPIView):
-#     queryset = Store.objects.all()
-#     serializer_class = StoreSerializer
-#     lookup_field = "pk"
+class StoreListView(generics.ListAPIView):
+    queryset = Store.objects.all()
+    serializer_class = StoreSerializer
+    lookup_field = "pk"
 
+class StoreCreate(APIView):
+      def get(self, request, *args, **kwargs):
+            products=Store.objects.all()
+            serializer=StoreSerializer(products, many=True)
+            return Response(serializer.data, status=status.HTTP_200_OK)
       
+
+      def post(self, request, *args, **kwargs):
+            request.data
+            serializer=CreateStoreSerializer(data=request.data)
+            if serializer.is_valid():
+                  serializer.save()
+                  return Response(data=serializer.data, status=status.HTTP_201_CREATED)
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
