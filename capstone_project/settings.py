@@ -63,17 +63,16 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'capstone_project.urls'
 
 CORS_ALLOWED_ORIGINS=[
-    'https://capstone-project-ll05.onrender.com', 
     'http://localhost:3000',
     'http://domain.com'
 
 
 ]
 
-# CORS_ALLOWED_ORIGINS=True
+CORS_ALLOWED_ORIGINS=True
 
 CSRF_TRUSTED_ORIGINS=[
-      'http://localhost:3000',
+      'http://localhost:3000'
 ]
 
 STORAGES = {
