@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-dmifh)k_y6pm%#x9-p_*$s0=b5eo#2_ypzfo=go1k0c94d0r!c
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['capstone-project-orjm.onrender.com', 'localhost']
+ALLOWED_HOSTS = ['mycap-project.onrender.com', 'localhost']
 
 
 # Application definition
@@ -72,7 +72,7 @@ CORS_ALLOWED_ORIGINS=[
 # CORS_ALLOWED_ORIGINS=True
 
 CSRF_TRUSTED_ORIGINS=[
-      'http://localhost:3000'
+      'http://localhost:3000',
 ]
 
 STORAGES = {
