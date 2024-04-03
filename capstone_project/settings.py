@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-dmifh)k_y6pm%#x9-p_*$s0=b5eo#2_ypzfo=go1k0c94d0r!c'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['mycap-project.onrender.com', 'localhost']
 
